@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript innerHTML vs createElement Demo</title>
+</head>
+<body>
+    <div class="container">
+
+    </div>
+
+    <script>
+        let div = document.querySelector('.container');
+
+        let p = document.createElement('p');
+        p.textContent = 'JS DOM';
+        div.appendChild(p);
+
+        div.innerHTML += '<p>JS DOM</p>';
+        div.innerHTML += '<p class="note">JS DOM</p>';
+
+        // for(let i = 0; i < 1000; i++) {
+        //     p.textContent = `Paragraph${i}`;
+        //     div.appendChild(p);
+        // }
+
+        let fragment = document.createDocumentFragment();
+        for (let i = 0; i < 1001; i++) {
+            p.textContent = `Paragraph${i}`;
+            fragment.appendChild(p);
+        }
+        div.appendChild(fragment);
+    </script>
+</body>
+</html>
