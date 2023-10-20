@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript after() Demo</title>
+    <style>
+        button {
+            padding: 0.75em 1em;
+            background-color: #F7DF1E;
+            color: #000;
+            cursor: pointer;
+            border-radius: 50vw;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript DOM - after()</h1>
+
+    <h2>Using JavaScript after() to insert multiple nodes after an element</h2>
+
+    <ul>
+        <li>Angular</li>
+        <li>Vue</li>
+    </ul>
+
+    <h2>Using JavaScript after() to insert strings</h2>
+
+    <button>Donate Here</button>
+
+    <script>
+        const h1 = document.querySelector('h1');
+
+        // create new paragraph element
+        const p = document.createElement('p');
+        p.innerText = 'This is a JavaScript DOM after() method demo.';
+
+        // insert the paragraph after the heading
+        h1.after(p);
+
+        // Using JavaScript after() to insert multiple nodes after an element
+
+        // select the ul element using the querySelector() method:
+        const list = document.querySelector('ul');
+        // define an array of strings. In practice, you may get it from an API call.
+        const libs = ['React', 'Meteor', 'Polymer'];
+        // transform the array of strings into an array of li elements using the map() method:
+        const items = libs.map((lib) => {
+            const item = document.createElement('li');
+            item.innerText = lib;
+            return item;
+        });
+        // insert the list item elements after the last child of the ul element:
+        list.lastChild.after(...items);
+
+        // Using JavaScript after() to insert strings
+        const button = document.querySelector('button');
+        button.firstChild.after(' 🧡');
+    </script>
+</body>
+</html>
