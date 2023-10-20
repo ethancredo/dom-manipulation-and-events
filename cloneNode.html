@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript cloneNode Demo</title>
+</head>
+<body>
+    <ul id="menu">
+        <li>Home</li>
+        <li>Services</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+    <script>
+        // select the <ul> with the id menu by using the querySelector() method
+        let menu = document.querySelector('#menu');
+        // create a deep clone of the <ul> element using the cloneNode() method
+        let clonedMenu = menu.cloneNode(true);
+        // change the id of the cloned element to avoid duplicate
+        clonedMenu.id = 'menu-mobile';
+        // append the cloned element to the child nodes of the document.body using the appendChild() method
+        document.body.appendChild(clonedMenu);
+    </script>
+</body>
+</html>
