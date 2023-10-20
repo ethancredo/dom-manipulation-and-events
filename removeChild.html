@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript removeChild Demo</title>
+</head>
+<body>
+    <ul id="menu">
+        <li>Home</li>
+        <li>Products</li>
+        <li>About Us</li>
+    </ul>
+
+    <script>
+        let menu = document.getElementById("menu");
+        // menu.removeChild(menu.lastElementChild);
+
+        // remove all child nodes using while loop
+        while(menu.firstChild) {
+            menu.removeChild(menu.firstChild);
+        }
+
+        // remove all child nodes by using innerHTML and set it to blank
+        // menu.innerHTML = '';
+    </script>
+</body>
+</html>
