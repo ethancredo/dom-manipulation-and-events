@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript createElement Demo</title>
+</head>
+<body>
+    <ul id="menu">
+        <li>Home</li>
+    </ul>
+    
+    <script>
+        // create a new div and set its attributes
+        let div = document.createElement("div");
+        div.id = "content";
+        div.className = "note";
+        div.innerHTML = "<p>CreateElement Example</p>";
+
+        // create a new text node and add it to the div
+        let text = document.createTextNode("CreateElement Example");
+        div.appendChild(text);
+
+        // add div to the document
+        document.body.appendChild(div);
+
+        // create a new heading and add it to the div
+        let h2 = document.createElement("h2");
+        h2.textContent = "Add h2 Element to the div";
+        div.appendChild(h2);
+
+        // select the ul menu element
+        const menu = document.getElementById("menu");
+
+        let li = document.createElement("li");
+        li.textContent = "Products";
+        menu.appendChild(li)
+
+        li = document.createElement("li");
+        li.textContent = "About Us";
+        menu.appendChild(li);
+
+        function loadJS(url) {
+            let script = document.createElement('script');
+            script.src = '/lib.js';
+            document.body.appendChild(script);
+        }
+
+        function loadJSAsync(url) {
+            let script = document.createElement("script");
+            script.src = url;
+            script.async = true;
+            document.body.appendChild(script);
+        }
+
+        menu.addEventListener("click", loadJS);
+    </script>
+</body>
+</html>

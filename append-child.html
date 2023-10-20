@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript appendChild() Demo</title>
+</head>
+<body>
+    <ul id="menu">
+
+    </ul>
+
+    <ul id="first-list">
+        <li>Dipolog</li>
+        <li>Dapitan</li>
+        <li>Sindangan</li>
+    </ul>
+
+    <ul id="second-list">
+        <li>Katipunan</li>
+        <li>Roxas</li>
+        <li>Jose Dalman</li>
+    </ul>
+
+    <script>
+        function createMenuItem(name) {
+            let li = document.createElement("li");
+            li.textContent = name;
+            return li;
+        }
+        // get the ul#menu
+        const menu = document.getElementById("menu");
+        // add menu item
+        menu.appendChild(createMenuItem("Home"));
+        menu.appendChild(createMenuItem("Services"));
+        menu.appendChild(createMenuItem("About Us"));
+        // get the first list
+        const firstList = document.querySelector("#first-list");
+        // take the first child element
+        const dipolog = firstList.firstElementChild;
+        // get the second list
+        const secondList = document.querySelector("#second-list");
+        // append dipolog to the second list
+        secondList.appendChild(dipolog);
+    </script>
+</body>
+</html>
