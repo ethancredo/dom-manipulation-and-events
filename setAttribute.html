@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript setAttribute Demo</title>
+</head>
+<body>
+    <button id="btnSend">Send</button>
+
+    <script>
+        // select the button with the id btnSend by using the querySelector() method
+        let btnSend = document.querySelector('#btnSend');
+        
+        if(btnSend) {
+            // set the value of the name attribute to send using setAttribute() method
+            btnSend.setAttribute('name', 'send');
+            // set the value of the disabled attribute so that 
+            btnSend.setAttribute('disabled', '');
+        }
+    </script>
+</body>
+</html>
