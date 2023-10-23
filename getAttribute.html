@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript getAttribute() Demo</title>
+</head>
+<body>
+    <a href="https://www.javascripttutorial.net" target="_blank" id="js">JavaScript Tutorial</a>
+
+    <script>
+        // select the link element with the id js using the querySelector() method
+        let link = document.querySelector('#js');
+        
+        if(link) {
+            // get the target attribute of the link by calling the getAttribute() of the selected link element
+            let target = link.getAttribute('target');
+            // show the value of the target on the console window
+            console.log(target);
+        }
+    </script>
+</body>
+</html>
