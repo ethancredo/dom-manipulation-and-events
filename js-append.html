@@ -10,16 +10,17 @@
         <li>Javascript</li>
     </ul>
     <script>
+        // select the ul element by its id by using the querySelector() method
         let app = document.querySelector('#app');
-
+        // declare array of languages
         let langs = ['TypeScript', 'HTML', 'CSS'];
-
+        // for each language, create a new li element with the textContent is assigned to the language
         let nodes = langs.map(lang => {
             let li = document.createElement('li');
             li.textContent = lang;
             return li;
         });
-
+        // append li elements to the ul element by using the append() method
         app.append(...nodes);
     </script>
 </body>
