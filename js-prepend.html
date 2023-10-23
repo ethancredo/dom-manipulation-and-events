@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="app">
+        <li>HTML</li>
+    </ul>
+    <div>
+
+    </div>
+
+    <script>
+        // select the ul element by its id by using querySelector() method
+        let app = document.querySelector('#app');
+        // declare array of strings
+        let langs = ['JavaScript', 'CSS', 'TypeScript'];
+        // for each element in an array, create a new li element with the textContent is assigned to the array element
+        let nodes = langs.map(lang => {
+            let li = document.createElement('li');
+            li.textContent = lang;
+            return li;
+        });
+        // prepend the li element to the ul parent element by using the prepend() method
+        app.prepend(...nodes);
+
+        let div = document.querySelector('div');
+        div.prepend('prepend() Text Demo');
+
+        console.log(div.textContent);
+    </script>
+</body>
+</html>
