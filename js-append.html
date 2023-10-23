@@ -9,6 +9,9 @@
     <ul id="app">
         <li>Javascript</li>
     </ul>
+    <div>
+
+    </div>
     <script>
         // select the ul element by its id by using the querySelector() method
         let app = document.querySelector('#app');
@@ -22,6 +25,11 @@
         });
         // append li elements to the ul element by using the append() method
         app.append(...nodes);
+
+        let div = document.querySelector('div');
+        div.append('append() Text Demo');
+
+        console.log(div.textContent);
     </script>
 </body>
 </html>
