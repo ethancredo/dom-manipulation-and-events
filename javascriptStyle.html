@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Style Demo</title>
+</head>
+<body>
+    <p id="content">JavaScript Setting Style Demo!</p>
+
+    <span id="sample">Sample rani</span>
+    
+    <script>
+        // select the paragraph element whose id is content by using the querySelector() method
+        let p = document.querySelector('#content');
+        // set the color and font-weight properties of the paragraph by setting the color and fontWeight properties of the style object
+        p.style.color = 'red';
+        p.style.fontWeight = 'bold';
+
+        // css helper function used to set multiple styles for an element from an object of key-values pairs:
+        function css(e, styles) {
+            for(const property in styles) {
+                e.style[property] = styles[property];
+            }
+        }
+        // use css function to set multiple styles for an element with the id #sample
+        let sample = document.querySelector('#sample');
+        css(sample, {background: 'yellow', border: '1px solid red'});
+    </script>
+</body>
+</html>
