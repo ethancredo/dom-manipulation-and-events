@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript getComputedStyle() Demo</title>
+    <style type="text/css">
+        /* define CSS rules for the message class in the head section of the HTML file. text color is black */
+        .message {
+            background-color: #fff3d4;
+            border: 1px solid #f6b73c;
+            padding: 20px;
+            color: black;
+        }
+
+        body {
+            font: arial, sans-serif;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        p::first-letter {
+            font-size: 1.5em;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <!-- declare a paragraph element whose text color is red as defined in the inline style. This rule will override the one defined in the head section -->
+    <p class="message" style="color: red">
+        This is a JavaScript getComputedStyle() Demo!
+    </p>
+
+    <p id="main">
+        JavaScript getComputedStyle() Demo for pseudo-elements
+    </p>
+
+    <script>
+        // use the getComputedStyle() method to get all the computed style of the paragraph element. 
+        // The color property is red as indicated in the Console window ( rgb(255, 0, 0)) as expected
+        let message = document.querySelector('.message');
+        let style = getComputedStyle(message);
+
+        console.log('color:', style.color);
+        console.log('background color:', style.backgroundColor);
+
+        // getComputedStyle() for pseudo-elements example
+        let main = document.querySelector('#main');
+        // use the getComputedStyle() method to pull the computed style of the pseudo-element. 
+        let style2 = getComputedStyle(main, '::first-letter');
+        // The font-size of the first letter of the paragraph with the id is 24px
+        console.log(style2.fontSize);
+    </script>
+</body>
+</html>
