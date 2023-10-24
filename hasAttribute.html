@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript hasAttribute() Demo</title>
+</head>
+<body>
+    <button id="btnSend" disabled>Send</button>
+
+    <script>
+        // select the button with the id btnSend by using the querySelector() method
+        let btn = document.querySelector('#btnSend');
+        // check if the button has the disabled attribute by calling the hasAttribute() method on the button element
+        if(btn) {
+            let disabled = btn.hasAttribute('disabled');
+            console.log(disabled);
+        }
+    </script>
+</body>
+</html>
