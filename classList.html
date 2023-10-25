@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript classList Demo</title>
+</head>
+<body>
+    <div id="content" class="main red">
+        JavaScript classList
+    </div>
+
+    <ul>
+        <li>The element’s classList property returns the live collection of CSS classes of the element.</li>
+        <li>Use add() and remove() to add CSS classes to and remove CSS classes from the class list of an element.</li>
+        <li>Use replace() method to replace an existing class with a new one.</li>
+        <li>Use contains() method to check if the class list of an element contains a specified class.</li>
+        <li>Use the toggle() method to toggle a class.</li>
+    </ul>
+
+    <script>
+        // select the div element with the id content using the querySelector() method
+        let div = document.querySelector('#content');
+        // iterate over the elements of the classList and show the classes in the Console window
+        for(let cssClass of div.classList) {
+            console.log(cssClass);
+        }
+
+        // Add one or more classes to the class list of an element
+
+        // To add one or more CSS classes to the class list of an element, you use the add() method of the classList
+        div.classList.add('info');
+
+        // The following example adds multiple CSS classes to the class list of an element
+        div.classList.add('visible', 'block');
+
+        // To remove a CSS class from the class list of an element, you use the remove() method:
+        div.classList.remove('visible');
+
+        // Like the add() method, you can remove multiple classes once:
+        div.classList.remove('block', 'red');
+
+        // To replace an existing CSS class with a new one, you use the replace() method:
+        div.classList.replace('info', 'warning');
+
+        // To check if the element has a specified class, you use the contains() method:
+        let warn = div.classList.contains('warning');
+        console.log(warn);
+
+        // The following example uses the toggle() method to toggle the visible class of an element with the id content:
+        div.classList.toggle('visible');
+    </script>
+</body>
+</html>
