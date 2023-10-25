@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript className Demo</title>
+</head>
+<body>
+    <ul id="menu" class="vertical main">
+        <li>Homepage</li>
+        <li>Services</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+
+    <script>
+        let menu = document.querySelector('#menu');
+        console.log(menu.className);
+
+        // The += operator concatenates newClassName to the existing class list of the element. 
+        // Therefore, you need to prefix the new class name with a space like this:
+        menu.className += ' new';
+        console.log(menu.className);
+
+        // In practice, you’ll use the classList to add a new class to the existing classes of an element:
+        menu.classList.add('new2');
+        console.log(menu.className);
+    </script>
+</body>
+</html>
