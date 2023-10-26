@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Events Demo</title>
+</head>
+<body>
+    <button id="btn">Click Me!</button>
+
+    <a href="https://www.javascripttutorial.net/">JS Tutorial</a>
+
+    <script>
+        // select the button with the id btn by using the querySelector() method
+        let btn = document.querySelector('#btn');
+        // define a function called display() as an event handler
+        function display() {
+            alert('It was clicked!');
+        }
+        //  register an event handler using the addEventListener() so that when users click the button, the display() function will be executed
+        btn.addEventListener('click', display);
+
+        // A shorter way to register an event handler is to place all code in an anonymous function, like this:
+        btn.addEventListener('click', function(){
+            alert('Gi click jud oh!');
+        });
+        // When the event occurs, the web browser passed an Event object to the event handler:
+        btn.addEventListener('click', function(event) {
+            console.log(event.type);
+        });
+
+        // To prevent the default behavior of an event, you use the preventDefault() method
+        let link = document.querySelector('a');
+        link.addEventListener('click', function(event) {
+            console.log('clicked');
+            event.preventDefault();
+        });
+
+        // The stopPropagation() method immediately stops the flow of an event through the DOM tree. However, it does not stop the browers default behavior
+        btn.addEventListener('click', function(event) {
+            console.log('the button was clicked!');
+            event.stopPropagation();
+        });
+        // Without the stopPropagation() method, you would see two messages on the Console window.
+        // However, the click event never reaches the body because the stopPropagation() was called on the click event handler of the button.
+        document.body.addEventListener('click', function(event) {
+            console.log('The body was clicked!');
+        })
+    </script>
+</body>
+</html>
