@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handling Events in JavaScript</title>
+</head>
+<body>
+    <!-- Event handlers typically have names that begin with on, for example, the event handler for the click event is onclick. -->
+    <!-- To assign an event handler to an event associated with an HTML element, you can use an HTML attribute with the name of the event handler. 
+        For example, to execute some code when a button is clicked, you use the following: -->
+    <input type="button" value="Save" onclick="alert('Clicked')">
+
+    <!-- An event handler defined in the HTML can call a function defined in a script. For example: -->
+    <input type="button" value="Show Alert" onclick="showAlert()">
+
+    <input type="button" value="Button" id="btn">
+
+    <input type="button" value="Button 2" id="btn2">
+
+    <input type="button" value="Button 3" id="btn3">
+
+    <script>
+        function showAlert() {
+            alert('Clicked');
+        }
+
+        let btn = document.querySelector('#btn');
+
+        // DOM Level 0 event handler
+        // alert the button id
+        btn.onclick = function() {
+            alert(this.id);
+        }
+
+        // DOM Level 2 event handler
+        // The addEventListener() method accepts three arguments: an event name, an event handler function,
+        // and a Boolean value that instructs the method to call the event handler during the capture phase (true) or during the bubble phase (false)
+        let btn2 = document.querySelector('#btn2');
+        // It is possible to add multiple event handlers to handle a single event
+        btn2.addEventListener('click', function(event) {
+            alert(event.type);
+        });
+        btn2.addEventListener('click', function(event) {
+            alert('Clicked!');
+        })
+
+        let btn3 = document.querySelector('#btn3');
+        let showAlert2 = function() {
+            alert('Clicked!!!');
+        };
+        btn3.addEventListener('click', showAlert2);
+        btn3.removeEventListener('click', showAlert2);
+    </script>
+</body>
+</html>
