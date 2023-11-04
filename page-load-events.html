@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Page Load Events Demo</title>
+</head>
+<body>
+    <div>
+        <a href="index.html">Home</a>
+    </div>
+
+    <script>
+        addEventListener('DOMContentLoaded', (event) => {
+            console.log('The DOM is fully loaded!');
+        });
+
+        addEventListener('load', (event) => {
+            console.log('The page is fully loaded!');
+        });
+
+        addEventListener('beforeunload', (event) => {
+            // show the confirmation
+            event.preventDefault();
+            // google chrome requires returnValue to be set
+            event.returnValue = ' ';
+        });
+
+        addEventListener('unload', (event) => {
+            // send analytic data
+        });
+    </script>
+</body>
+</html>
