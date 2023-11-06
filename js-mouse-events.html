@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Mouse Events</title>
+    <style>
+        #track {
+            background-color: gold;
+            height: 300px;
+            width: 500px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Detecting mouse button</h2>
+    <button id="btn">Click me with any mouse button: left, right, middle, ...</button>
+    <p id="message"></p>
+
+    <hr>
+
+    <h2>Modifier keys</h2>
+    <button id="btnKeys">Click me with Alt, Shift, Ctrl pressed</button>
+    <p id="messageKeys"></p>
+
+    <hr>
+
+    <h2>Getting Screen Coordinates</h2>
+    <div id="track"></div>
+    <p id="log"></p>
+
+    <script>
+        let btn = document.querySelector('#btn');
+        // disable context menu when right-mouse is clicked
+        btn.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+        });
+        // show the mouse event message
+        // when you click the button with your mouse (left-click, right-click, and middle-click), it shows a corresponding message on the <div> element.
+        btn.addEventListener('mouseup', (e) => {
+            let msg = document.querySelector('#message');
+            switch(e.button) {
+                case 0:
+                    msg.textContent = 'Left mouse button clicked.';
+                    break;
+                case 1:
+                    msg.textContent = 'Middle mouse button clicked.';
+                    break;
+                case 2:
+                    msg.textContent = 'Right mouse button clicked.';
+                    break;
+                case 3:
+                    msg.textContent = `Unknow mouse button code: ${event.button}`;
+            }
+        });
+
+        let btnKeys = document.querySelector('#btnKeys');
+
+        btnKeys.addEventListener('click', (e) => {
+            let keys = [];
+
+            if(e.shiftKey) keys.push('shift');
+            if(e.ctrlKey) keys.push('ctrl');
+            if(e.altKey) keys.push('alt');
+            if(e.metaKey) keys.push('meta');
+
+            let msgKeys = document.querySelector('#messageKeys');
+            msgKeys.textContent = `Keys: ${keys.join('+')}`;
+        });
+
+        let track = document.querySelector('#track');
+        track.addEventListener('mousemove', (e) => {
+            let log = document.querySelector('#log');
+            // The screenX and screenY properties return the horizontal and vertical coordinates of the mouse pointer in screen coordinates.
+            // The clientX and clientY properties of the event object return horizontal and vertical coordinates within the application’s client area at which the mouse event occurred.
+            log.innerText = `Screen X/Y: (${e.screenX}, ${e.screenY})
+                             Client X/Y: (${e.clientX}, ${e.clientY})`;
+        });
+    </script>
+</body>
+</html>
