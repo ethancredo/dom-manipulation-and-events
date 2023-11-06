@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript beforeunload Demo</title>
+</head>
+<body>
+    <a href="index.html">Home</a>
+    <script>
+        // The beforeunload event is fired before the webpage and its resources are about to unload.
+        // Use beforeunload to confirm if users really want to leave the page to prevent data loss.
+        window.addEventListener('beforeunload', (event) => {
+            event.preventDefault();
+            // google chrome requires returnValue to be set
+            event.returnValue = '';
+        });
+    </script>
+</body>
+</html>
