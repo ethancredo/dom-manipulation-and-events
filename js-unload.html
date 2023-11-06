@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Unload Demo</title>
+</head>
+<body>
+    <script>
+        // fires the unload event when a document has been completely unloaded
+        // In practice, do not use the unload event.
+        addEventListener('unload', (event) => {
+            console.log('Page is unloaded');
+        });
+    </script>
+</body>
+</html>
