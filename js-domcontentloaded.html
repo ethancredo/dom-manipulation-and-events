@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript DOM Content Loaded Demo</title>
+    <script>
+        // When you place JavaScript in the header, it will cause bottlenecks and rendering delays, so it’s better to move the script before the </body> tag
+        document.addEventListener('DOMContentLoaded', () => {
+            let btn = document.getElementById('btn');
+            btn.addEventListener('click', (e) => {
+                // handle the click event
+                console.log('Clicked');
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="btn">Click Me!</button>
+</body>
+</html>

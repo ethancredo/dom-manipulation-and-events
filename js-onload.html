@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JavaScript onload Demo/title>
 </head>
 <body>
     <img src="" alt="" id="logo">
@@ -37,12 +37,12 @@
         function checkJSLoaded() {
             // create the script element
             let script = document.createElement('script');
-            
+
             // assign an onload event handler
             script.addEventListener('load', (event) => {
                 console.log('app.js file has been loaded');
             });
-        
+
             // load the script file
             document.body.appendChild(script);
             script.src = './js/app.js';
