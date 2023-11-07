@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Focus Events</title>
+</head>
+<body>
+    <p>Move focus to the password field to see the effect:</p>
+
+    <form action="" id="form">
+        <input type="text" placeholder="username" id="">
+        <input type="password" placeholder="password">
+    </form>
+
+    <script>
+        const passw = document.querySelector('input[type="password"]');
+
+        passw.addEventListener('focus', (e) => {
+            e.target.style.backgroundColor = 'yellow';
+        });
+        // blur when element lost focus
+        passw.addEventListener('blur', (e) => {
+            e.target.style.backgroundColor = '';
+        });
+    </script>
+</body>
+</html>
