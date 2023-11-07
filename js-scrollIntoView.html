@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript scrollIntoView Demo</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+            scroll-behavior: smooth;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+        li, button {
+            list-style: none;
+            border: none;
+            background-color: white;
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 50px 0 50px 0;
+            font-size: 20px;
+        }
+        li:nth-child(even) {
+            background-color: rgb(238, 238, 238);
+        }
+        button {
+            background-color: aquamarine;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: aqua;
+        }
+        .special {
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="btn">Scroll Into View</button>
+        <ul>
+            <li>C</li>
+            <li>Java</li>
+            <li>Python</li>
+            <li>C++</li>
+            <li>C#</li>
+            <li>Go</li>
+            <li>Visual Basic</li>
+            <li>JavaScript</li>
+            <li>PHP</li>
+            <li>SQL</li>
+            <li>R</li>
+            <li>Swift</li>
+            <li class="special">JavaScript</li>
+            <li>MATLAB</li>
+            <li>Assembly Language</li>
+            <li>Ruby</li>
+            <li>PL/SQL</li>
+            <li>Classic Visual Basic</li>
+            <li>Perl</li>
+            <li>Scratch</li>
+            <li>Objective-C</li>
+        </ul>
+    </div>
+    <script>
+        // select the button with the btn class and list item with the special class
+        let btn = document.querySelector('.btn');
+        let el = document.querySelector('.special');
+        // attach an event listener to the click event of the button
+        btn.addEventListener('click', function() {
+            // scroll the JavaScript list item into the viewport by calling the el.scrollIntoView(true) method in the click event handler
+            // To align the JavaScript list item to the bottom of the view, you pass false value to the scrollIntoView() method
+            el.scrollIntoView(true);
+        })
+    </script>
+</body>
+</html>
