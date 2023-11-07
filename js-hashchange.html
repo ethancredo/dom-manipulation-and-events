@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript hashchange Event</title>
+</head>
+<body>
+    <a href="#header">Header</a>
+    <a href="#footer">Footer</a>
+    
+    <script>
+        // attach an event listener to the hashchange event, you call the addEventListener() method on the window object
+        window.addEventListener('hashchange', () => {
+            console.log('The URL has changed.');
+            // To get the current URL hash, you access the hash property of the location object
+            console.log(`The current URL hash is ${location.hash}`);
+        })
+    </script>
+</body>
+</html>
