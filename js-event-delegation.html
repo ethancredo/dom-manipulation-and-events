@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Event Delegation</title>
+</head>
+<body>
+    <ul id="menu">
+        <li><a href="#" id="home">Home</a></li>
+        <li><a href="#" id="dashboard">Dashboard</a></li>
+        <li><a href="#" id="report">Report</a></li>
+    </ul>
+    <script>
+        // To handle the click event of each menu item, you may add the corresponding click event handlers
+        let home = document.querySelector('#home');
+        home.addEventListener('click', (event) => {
+            console.log('Home menu item was clicked!');
+        });
+
+        let dashboard = document.querySelector('#dashboard');
+        dashboard.addEventListener('click', (event) => {
+            console.log('Dashboard menu item was clicked!');
+        });
+
+        let report = document.querySelector('#report');
+        report.addEventListener('click', (event) => {
+            console.log('Report menu item was clicked!');
+        });
+
+        // In JavaScript, if you have a large number of event handlers on a page, these event handlers will directly impact the performance
+        // To solve this issue, you can leverage the event bubbling
+        // Instead of having multiple event handlers, you can assign a single event handler to handle all the click events
+
+        // When you click any <a> element inside the <ul> element with the id menu, the click event bubbles to the parent element which is the <ul> element. 
+        // So instead of handling the click event of the individual <a> element, you can capture the click event at the parent element.
+        let menu = document.querySelector('#menu');
+        // In the click event listener, you can access the target property which references the element that dispatches the event. 
+        // To get the id of the element that the event actually fires, you use the target.id property.
+        menu.addEventListener('click', (event) => {
+            let target = event.target;
+            // Once having the id of the element that fires the click event, you can have code that handles the event correspondingly.
+            switch(target.id) {
+                case 'home':
+                    console.log('Home menu was clicked.');
+                    break;
+                case 'dashboard':
+                    console.log('Dashboard menu was clicked.');
+                    break;
+                case 'report':
+                    console.log('Report menu was clicked.');
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>
