@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MutationObserver Demo: ChildList</title>
+</head>
+<body>
+    <ul id="language">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>TypeScript</li>
+    </ul>
+
+    <button id="btnStart">Start Observing</button>
+    <button id="btnStop">Stop Observing</button>
+    <button id="btnAdd">Add</button>
+    <button id="btnRemove">Remove the Last Child</button>
+
+    <script>
+        // select the elements like the list and buttons using the querySelector() method. By default, the Stop Observing button is disabled
+        // selecting list
+        let list = document.querySelector('#language');
+        // selecting buttons
+        let btnAdd = document.querySelector('#btnAdd');
+        let btnStart = document.querySelector('#btnStart');
+        let btnRemove = document.querySelector('#btnRemove');
+
+        let btnStop = document.querySelector('#btnStop');
+        btnStop.disabled = true;
+
+        // declare a log() function that will be used as a callback for the MutationObserver
+        function log(mutations) {
+            for(let mutation of mutations) {
+                if(mutation.type === 'childList') {
+                    console.log(mutation);
+                }
+            }
+        }
+        //  create a new MutationObserver object
+        let observer = new MutationObserver(log);
+
+        // start observing the DOM changes to the child nodes of the list element when the Start Observing button is clicked 
+        // by calling the observe() method with the childList of the options object is set to true
+        btnStart.addEventListener('click', function() {
+            observer.observe(list, {
+                childList: true
+            });
+
+            btnStart.disabled = true;
+            btnStop.disabled = false;
+        });
+
+        // add a new list item when the add button is clicked
+        let counter = 1;
+        btnAdd.addEventListener('click', function() {
+            // create a new item element
+            let item = document.createElement('li');
+            item.textContent = `Item ${counter++}`;
+
+            list.appendChild(item);
+        })
+
+        // remove the last child of the list when the Remove button is clicked
+        btnRemove.addEventListener('click', function() {
+            list.lastElementChild ?
+                list.removeChild(list.lastElementChild) :
+                console.log('No more child node to remove')
+        });
+
+        // stop observing DOM changes when the Stop Observing button is clicked by calling the disconnect() method of the MutationObserver object
+        btnStop.addEventListener('click', function() {
+            observer.disconnect();
+            // set button states
+            btnStart.disabled = false;
+            btnStop.disabled = true;
+        });
+
+    </script>
+</body>
+</html>
